@@ -1,2 +1,10 @@
-#!/bin/bash
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 4-puts.c
+#include <stdio.h>
+/**
+ * print followed by a new lane
+ */
+ 
+ int main(void)
+ {
+     puts("Programming is like building a multilingual puzzle\n");
+     return 0;
+ }
