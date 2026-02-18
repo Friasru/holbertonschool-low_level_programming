@@ -7,21 +7,19 @@
 */
 int main(void)
 {
-int num;
+int i;
 
-for (num = 0; num < 16; num++)
+for (i = '0'; i <= '9'; i++)
 {
-if (num < 10)
-{
-putchar(num + '0');
-}
-else
-{
-putchar(num - 10 + 'a');
-}
+putchar(i);
 }
 
-putchar(num - 10 + 'a');
+for (i = 'a'; i <= 'f'; i++)
+{
+putchar(i);
+}
+
+putchar('\n');
 
 return (0);
 }
