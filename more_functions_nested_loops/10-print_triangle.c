@@ -8,13 +8,13 @@
 * characters. Each line ends with a newline. If size is 0 or less,
 *only a newline is printed.
 */
-void print_triangle(int void)
+void print_triangle(int size)
 {
 int i, j;
 
 if (size <= 0)
 {
-_putchar('\n';)
+_putchar('\n');
 return;
 }
 
