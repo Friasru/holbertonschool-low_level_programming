@@ -18,10 +18,11 @@ _putchar('\n');
 return;
 }
 
-for (i = 1; 1 <= size; i++)
+for (i = 1; i <= size; i++)
 {
 for (j = 1; j <= i; j++)
 _putchar('#');
+
 _putchar('\n');
 }
 }
