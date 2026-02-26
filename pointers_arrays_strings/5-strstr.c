@@ -8,6 +8,7 @@
 *
 * Return: pointer to the beggining of the located substring, or NULL
 */
+char *_strstr(char *haystack, char *needle)
 {
 int i, j;
 
