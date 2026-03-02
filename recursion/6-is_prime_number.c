@@ -2,6 +2,7 @@
 
 /**
 * is_prime_helper - recursively checks if n is divisible by i
+* is_prime_number - returns 1 if n is prime, 0 otherwise
 * @n: number to check
 * @i: current divisor
 *
