@@ -9,10 +9,10 @@
 static int sqrt_helper(int n, int i)
 {
 if (i * i > n)
-return -1;        /* passed possible root, no natural root */
+return (-1);
 if (i * i == n)
-return i;         /* found the square root */
-return sqrt_helper(n, i + 1);
+return (i);
+return (sqrt_helper(n, i + 1));
 }
 
 /**
@@ -23,6 +23,6 @@ return sqrt_helper(n, i + 1);
 int _sqrt_recursion(int n)
 {
 if (n < 0)
-return -1;
-return sqrt_helper(n, 0);
+return (-1);
+return (sqrt_helper(n, 0));
 }
