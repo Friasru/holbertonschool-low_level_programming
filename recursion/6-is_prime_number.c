@@ -19,6 +19,7 @@ return (is_prime_helper(n, i + 1));
 }
 /**
 * is_prime_number - returns 1 if n is prime, 0 otherwise
+* @n: number to check
 * Return: 1 if prime, 0 if not
 */
 int is_prime_number(int n)
