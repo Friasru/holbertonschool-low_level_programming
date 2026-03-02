@@ -9,11 +9,15 @@
 */
 int sqrt_helper(int n, int i)
 {
-if (i * i > n)
+long square;
+
+square = (long)i * i;
+
+if (square > n)
 return (-1);
-if (i * i == n)
+if (square == n)
 return (i);
-return (sqrt_helper(n, 1));
+return (sqrt_helper(n, i + 1));
 }
 /**
 * _sqrt_recursion - returns the natural square root of n
