@@ -12,7 +12,7 @@ static int sqrt_helper(int n, int i)
 if (i * i > n)
 return (-1);
 if (i * i == n)
-return (i);
+return (0);
 return (sqrt_helper(n, i + 1));
 }
 /**
