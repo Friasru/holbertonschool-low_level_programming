@@ -7,13 +7,13 @@
 *
 * Return: the square root if found, -1 otherwise
 */
-static int sqrt_helper(int n, int i)
+int sqrt_helper(int n, int i)
 {
 if (i * i > n)
 return (-1);
 if (i * i == n)
-return (0);
-return (sqrt_helper(n, i + 1));
+return (i);
+return (sqrt_helper(n, 1));
 }
 /**
 * _sqrt_recursion - returns the natural square root of n
