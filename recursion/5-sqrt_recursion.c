@@ -4,6 +4,7 @@
 * sqrt_helper - recursively finds the natural square root of n
 * @n: the number to find the square root of
 * @i: the current guess
+*
 * Return: the square root if found, -1 otherwise
 */
 static int sqrt_helper(int n, int i)
@@ -14,7 +15,6 @@ if (i * i == n)
 return (i);
 return (sqrt_helper(n, i + 1));
 }
-
 /**
 * _sqrt_recursion - returns the natural square root of n
 * @n: the number
@@ -24,5 +24,5 @@ int _sqrt_recursion(int n)
 {
 if (n < 0)
 return (-1);
-return (sqrt_helper(n, 0));  /* <--- call the helper here */
+return (sqrt_helper(n, 0));
 }
