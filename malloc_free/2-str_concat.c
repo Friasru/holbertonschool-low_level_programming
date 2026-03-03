@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * str_concat - concatenates two strings
@@ -35,7 +34,7 @@ j = 0;
 
 while (i < lenght1)
 {
-concat[1] = s1[i];
+concat[i] = s1[i];
 i++;
 }
 
