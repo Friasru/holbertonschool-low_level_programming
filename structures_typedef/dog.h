@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#define dog
 
 /**
  * struct dog - a dog
