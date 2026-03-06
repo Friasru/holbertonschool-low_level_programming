@@ -1,10 +1,17 @@
 #include <stdio.h>
 
 /**
- * struct dog- a dog
+ * struct dog - a dog
  * @name: dog name
  * @age: dog age
  * @owner: dog owner
- * 
- * Return: all of the definitions
+ *
+ * Description: structure stores information about dog
  */
+struct dog
+{
+char *name;
+float age;
+char *owner;
+
+};
