@@ -22,8 +22,12 @@ void print_all(const char * const format, ...)
 		while (*f && *f != 'c' && *f != 'i' && *f != 'f' && *f != 's')
 		f++;
 
-		printf("%s", (first == 0) ? ", " : "");
+		if (*f)
+		{
+			if (!first)
+			printf(", ");
 		first = 0;
+		}
 
 		switch (*f)
 		{
@@ -37,17 +41,12 @@ void print_all(const char * const format, ...)
 			printf("%f", va_arg(ap, double));
 			break;
 		case 's':
-			str = va_arg(ap, char *);
-			printf("%s", str ? str : "(nil)");
-			break;
+            str = va_arg(ap, char *);
+            str && printf("%s", str);
+            !str && printf("(nil)");
+            break;
 		}
 		f++;
-
-		while (*f && *f != 'c' && *f != 'i' && *f != 'f' && *f != 's')
-			f++;
-
-		if (*f)
-			printf (", ");
 	}
 	va_end(ap);
 	printf("\n");
