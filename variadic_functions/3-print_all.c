@@ -12,12 +12,19 @@ void print_all(const char * const format, ...)
 	va_list ap;
 	const char *f;
 	char *str;
+	int first = 1;
 
 	va_start(ap, format);
 	f = format;
 
 	while (*f)
 	{
+		while (*f && *f != 'c' && *f != 'i' && *f != 'f' && *f != 's')
+		f++;
+
+		printf("%s", (first == 0) ? ", " : "");
+		first = 0;
+
 		switch (*f)
 		{
 		case 'c':
