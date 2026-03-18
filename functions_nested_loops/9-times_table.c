@@ -3,11 +3,11 @@
 /**
  * times_table - prints the 9 times table, starting with 0
  */
-void time_table(void)
+void times_table(void)
 {
 	int i, j, product;
 
-	for (i = 0; i <= 9; j++)
+	for (i = 0; i <= 9; i++)
 	{
 		for (j = 0; j <= 9; j++)
 		{
