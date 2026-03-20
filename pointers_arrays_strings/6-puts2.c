@@ -6,6 +6,7 @@
  *
  * Return: void
  */
+void puts2(char *str)
 {
 	int i;
 
@@ -15,5 +16,5 @@
 		_putchar(str[i]);
 		i += 2;
 	}
-	_putchar('\n')
+	_putchar('\n');
 }
