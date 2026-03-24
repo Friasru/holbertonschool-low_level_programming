@@ -31,6 +31,13 @@ int _atoi(char *s)
 			{
 				started = 1;
 				digit = *s - '0';
+				if (result > 214748364 || (result == 214748364 && digit > 7))
+				{
+					if (sign == 1)
+						return (214748364);
+					else
+						return (-214748364);
+				}
 				result = result * 10 + digit;
 			}
 		else if (started == 1)
