@@ -31,7 +31,7 @@ int _atoi(char *s)
 			{
 				started = 1;
 				digit = *s - '0';
-				if (result > 214748364 || (result == 214748364 && digit > 7))
+				if (result > 214748364 || (result == 214748364 && digit > 8))
 				{
 					if (sign == 1)
 						return (214748364);
