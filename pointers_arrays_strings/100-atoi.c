@@ -21,25 +21,22 @@ int _atoi(char *s)
 		if (*s == '-')
 		{
 			sign *= -1;
-			s++;
 		}
 		else if (*s == '+')
 		{
-			s++;
 		}
 		else if (*s >= '0' && *s <= '9')
-		{
-			while (*s >= '0' && *s <= '9')
 			{
+				digit = *s - '0';
 				result = result * 10 + digit;
 				s++;
+				continue;
 			}
-			return (sign * result);
-		}
 		else
 		{
-			s++;
+			break;
 		}
+		s++;
 	}
-	return (0);
+	return (sign * result);
 }
