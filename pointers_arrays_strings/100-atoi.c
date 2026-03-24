@@ -11,28 +11,29 @@ int _atoi(char *s)
 	int sign;
 	int result;
 	int digit;
+	int started;
 
 	sign = 1;
 	result = 0;
 	digit = 0;
+	started = 0;
 
 	while (*s)
 	{
-		if (*s == '-')
+		if (*s == '-' && started == 0)
 		{
 			sign *= -1;
 		}
-		else if (*s == '+')
+		else if (*s == '+' && started == 0)
 		{
 		}
 		else if (*s >= '0' && *s <= '9')
 			{
+				started = 1;
 				digit = *s - '0';
 				result = result * 10 + digit;
-				s++;
-				continue;
 			}
-		else
+		else if (started == 1)
 		{
 			break;
 		}
