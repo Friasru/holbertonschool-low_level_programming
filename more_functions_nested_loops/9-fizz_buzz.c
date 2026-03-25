@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- * fizz_buzz - print the numbers form 1-100 with Fizz, and FizzBuzz
+ * main - Fizz Buzz test
  *
- * Return: printed numbers from 1-100
+ * Return: Always 0
  */
 int main(void)
 {
