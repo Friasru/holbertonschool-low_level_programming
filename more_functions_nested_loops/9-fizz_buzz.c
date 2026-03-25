@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+ * fizz_buzz - print the numbers form 1-100 with Fizz, and FizzBuzz
+ *
+ * Return: printed numbers from 1-100
+ */
 int main(void)
 {
 	int i;
