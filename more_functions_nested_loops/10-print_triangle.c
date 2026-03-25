@@ -1,31 +1,28 @@
 #include "main.h"
 
 /**
-* print_triangle - prints a triangle using the character '#'
-* @size: the size of the triangle
-*
-* Description: prints a right-aligned triangle of size x size
-* characters. Each line ends with a newline. If size is 0 or less,
-*only a newline is printed.
-*/
+ * print_triangle - prints a triangle of a given size
+ * @size: the size of the triangle
+ *
+ * Return: triangle with the given size
+ */
 void print_triangle(int size)
 {
-int i, j;
+	int i;
+	int j;
 
-if (size <= 0)
-{
-_putchar('\n');
-return;
-}
+	if (size <= 0)
+	{
+		_putchar('\n');
+		return;
+	}
 
-for (i = 1; i <= size; i++)
-{
-for (i = 1; i <= size; i++)
-_putchar(' ');
-
-for (j = 1; j <= i; j++)
-_putchar('#');
-
-_putchar('\n');
-}
+	for (i = 1; i <= size; i++)
+	{
+		for (j = 0; j < size - 1; j++)
+			_putchar(' ');
+		for (j = 0; j < 1; j++)
+			_putchar('#');
+		_putchar('\n');
+	}
 }
