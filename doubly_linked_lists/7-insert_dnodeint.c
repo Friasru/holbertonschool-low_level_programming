@@ -2,7 +2,7 @@
 
 /**
  * insert_dnodeint_at_index - inserts a new node at a given index
- * @head: double pointer to the head of the list
+ * @h: double pointer to the head of the list
  * @idx: index where the new node should be added
  * @n: integer vvalue to be stored in the new node
  *
