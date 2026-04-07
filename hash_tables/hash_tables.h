@@ -20,7 +20,7 @@ typedef struct hash_node_s
 } hash_node_t;
 
 /**
- * struct hash_table_s - hash table
+ * struct hash_tables_s - hash table
  *
  * @size: the size of the array
  * @array: an array of size @size
