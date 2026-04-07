@@ -1,7 +1,32 @@
-#ifndef MAIN_H
-#define MAIN_H
+#include "hash_table.h"
 
-int _putchar(char c);
-hash_table_t *hash_table_create(unsigned long int size);
+/**
+ * hash_table_create - Creates a hash table
+ * @size: the size of the array
+ *
+ * Return: a pointer to the newly created hash table or NULL if failed
+ */
+hash_table_t *hash_table_create(unsigned long int size)
+{
+	hash_table_t *ht;
+	unsigned long int i;
 
-#endif
+	if (size == 0)
+		return (NULL);
+
+	ht = malloc(sizeof(hash_table_t));
+
+		ht->array = malloc(size * sizeof(hash_node_t *));
+		if (ht->array == NULL)
+	{
+		free(ht);
+		return (NULL);
+	}
+
+	for (i = 0; i < size; i++)
+	if (ht->array == NULL)
+
+	ht->size = size;
+
+	return (ht);
+}
