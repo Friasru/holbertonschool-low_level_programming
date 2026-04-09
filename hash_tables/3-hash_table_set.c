@@ -1,63 +1,57 @@
 #include "hash_tables.h"
 
 /**
- * _find_and_update - finds and updates an existing key in the chain
- * @node: the head of the collision chain
- * @key: the key to search for
- * @value: the new value to set
- *
- * Return: 1 if key found and updated, 0 otherwise
- */
-static int _find_and_update(hash_node_t *node, const char *key, char *value);
-
-/**
  * hash_table_set - adds an element to the hash table
- * @ht: is the hash table
- * @key: is the key
- * @value: is the value associated with the key
+ * @ht: the hash table to add or update the key/value to
+ * @key: the key (cannot be an empty string)
+ * @value: the value associated with the key (must be duplicated)
  *
- * Return: 1 if succeeded, 0 otherwise
+ * Return: 1 if it succeeded, 0 otherwise
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-    hash_node_t *new_node;
-    unsigned long int index;
-    char *value_copy;
-    char *key_copy;
+	hash_node_t *new_node, *tmp;
+	char *value_dup;
+	unsigned long int idx;
 
-    if (ht == NULL || key == NULL || *key == '\0')
-        return (0);
+	if (!ht || !key || key[0] == '\0' || !value)
+		return (0);
 
-    value_copy = malloc(strlen(value) + 1);
-    if (value_copy == NULL)
-        return (0);
-    strcpy(value_copy, value);
+	idx = key_index((const unsigned char *)key, ht->size);
+	value_dup = strdup(value);
+	if (!value_dup)
+		return (0);
 
-    index = key_index((unsigned char *)key, ht->size);
+	tmp = ht->array[idx];
+	while (tmp)
+	{
+		if (strcmp(tmp->key, key) == 0)
+		{
+			free(tmp->value);
+			tmp->value = value_dup;
+			return (1);
+		}
+		tmp = tmp->next;
+	}
 
-    if (_find_and_update(ht->array[index], key, value_copy))
-        return (1);
+	new_node = malloc(sizeof(hash_node_t));
+	if (!new_node)
+	{
+		free(value_dup);
+		return (0);
+	}
 
-    key_copy = malloc(strlen(key) + 1);
-    if (key_copy == NULL)
-    {
-        free(value_copy);
-        return (0);
-    }
-    strcpy(key_copy, key);
+	new_node->key = strdup(key);
+	if (!new_node->key)
+	{
+		free(value_dup);
+		free(new_node);
+		return (0);
+	}
 
-    new_node = malloc(sizeof(hash_node_t));
-    if (new_node == NULL)
-    {
-        free(value_copy);
-        free(key_copy);
-        return (0);
-    }
+	new_node->value = value_dup;
+	new_node->next = ht->array[idx];
+	ht->array[idx] = new_node;
 
-    new_node->key = key_copy;
-    new_node->value = value_copy;
-    new_node->next = ht->array[index];
-    ht->array[index] = new_node;
-
-    return (1);
+	return (1);
 }
