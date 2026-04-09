@@ -16,28 +16,6 @@ static char *_duplicate_string(const char *str)
 	strcpy(dup, str);
 	return (dup);
 }
-/**
- * _find_and_update - finds and updates an existing key in the chain
- * @node: the head of the collision chain
- * @key: the key to search for
- * @value: the new value to set
- *
- * Return: 1 if key found and updated, 0 otherwise
- */
-static int _find_and_update(hash_node_t *node, const char *key, char *value)
-{
-    while (node)
-    {
-        if (strcmp(node->key, key) == 0)
-        {
-            free(node->value);
-            node->value = value;
-            return (1);
-        }
-        node = node->next;
-    }
-    return (0);
-}
 
 /**
  * hash_table_set - adds an element to the hash table
@@ -60,13 +38,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
     value_copy = malloc(strlen(value) + 1);
     if (value_copy == NULL)
         return (0);
+    strcpy(value_copy, value);
 
     index = key_index((unsigned char *)key, ht->size);
 
     if (_find_and_update(ht->array[index], key, value_copy))
         return (1);
 
-    key_copy = _duplicate_string(key);
+    key_copy = malloc(strlen(key) + 1);
     if (key_copy == NULL)
     {
         free(value_copy);
@@ -88,4 +67,27 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
     ht->array[index] = new_node;
 
     return (1);
+}
+
+/**
+ * _find_and_update - finds and updates an existing key in the chain
+ * @node: the head of the collision chain
+ * @key: the key to search for
+ * @value: the new value to set
+ *
+ * Return: 1 if key found and updated, 0 otherwise
+ */
+static int _find_and_update(hash_node_t *node, const char *key, char *value)
+{
+    while (node)
+    {
+        if (strcmp(node->key, key) == 0)
+        {
+            free(node->value);
+            node->value = value;
+            return (1);
+        }
+        node = node->next;
+    }
+    return (0);
 }
