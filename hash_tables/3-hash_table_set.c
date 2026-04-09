@@ -1,6 +1,16 @@
 #include "hash_tables.h"
 
 /**
+ * _find_and_update - finds and updates an existing key in the chain
+ * @node: the head of the collision chain
+ * @key: the key to search for
+ * @value: the new value to set
+ *
+ * Return: 1 if key found and updated, 0 otherwise
+ */
+static int _find_and_update(hash_node_t *node, const char *key, char *value);
+
+/**
  * hash_table_set - adds an element to the hash table
  * @ht: is the hash table
  * @key: is the key
